@@ -1,0 +1,25 @@
+package profiling:perf@0.0.0;
+
+interface sampler {
+    use config.{event, event-scope, extra-config, process, cpu, clockid};
+
+    resource sampler {
+        new   : static func(process: process, cpu: cpu, cfg: config) -> result<sampler, string>;
+        pause : func() -> result<_, string>;
+        resume: func() -> result<_, string>;
+    }
+
+    record config {
+        event: event,
+        scopes: list<event-scope>,
+        extra-config: extra-config,
+
+        pinned: bool,
+        exclusive: bool,
+
+        inherit: bool,
+        inherit-thread: bool,
+
+        clockid: option<clockid>,
+    }
+}

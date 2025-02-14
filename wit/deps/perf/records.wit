@@ -1,0 +1,11 @@
+package profiling:perf@0.0.0;
+
+interface records {
+    record sample {
+        pid: option<u32>,
+        tid: option<u32>,
+        cpu: option<u32>,
+        time: option<u64>,
+        data-stack-user: option<list<u8>>,
+    }
+}

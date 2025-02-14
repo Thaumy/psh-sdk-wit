@@ -146,4 +146,17 @@ interface config {
         any,
         id(u32),
     }
+
+    variant overflow-by {
+        period(u64),
+        freq(u64),
+    }
+
+    variant clockid {
+      monotonic,
+      monotonic-raw,
+      real-time,
+      boot-time,
+      tai,
+    }
 }
