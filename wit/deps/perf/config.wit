@@ -136,12 +136,6 @@ interface config {
         remove-on-exec: bool,
     }
 
-    record config {
-        event       : event,
-        scopes      : list<event-scope>,
-        extra-config: extra-config,
-    }
-
     variant process {
         any,
         current,

@@ -1,8 +1,8 @@
 package profiling:perf@0.0.0;
 
 interface counter-group {
-    use config.{config, process, cpu};
-    use counter.{counter-stat};
+    use config.{process, cpu};
+    use counter.{counter-stat, config};
 
     resource counter-group {
         new       : static func(process: process, cpu: cpu) -> result<counter-group, string>;

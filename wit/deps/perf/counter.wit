@@ -1,7 +1,13 @@
 package profiling:perf@0.0.0;
 
 interface counter {
-    use config.{config, process, cpu};
+    use config.{process, cpu, event, event-scope, extra-config};
+
+    record config {
+        event       : event,
+        scopes      : list<event-scope>,
+        extra-config: extra-config,
+    }
 
     resource counter {
         new    : static func(process: process, cpu: cpu, cfg: config) -> result<counter, string>;
